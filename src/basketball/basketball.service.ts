@@ -30,6 +30,7 @@ export class BasketballService {
 
   play(strategyType: string, players: string[]): string {
     const strategy = this.strategies[strategyType];
+    console.log("🚀 ~ Se selecciona la estrategia:", strategyType)
     if (!strategy) throw new BadRequestException("Estrategia no soportada");
     return strategy.execute(players);
   }
