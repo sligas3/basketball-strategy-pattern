@@ -36,6 +36,7 @@ let BasketballService = class BasketballService {
     }
     play(strategyType, players) {
         const strategy = this.strategies[strategyType];
+        console.log("🚀 ~ Se selecciona la estrategia:", strategyType);
         if (!strategy)
             throw new common_1.BadRequestException("Estrategia no soportada");
         return strategy.execute(players);

@@ -7,6 +7,11 @@ const express = require("express");
 const server = express();
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule, new platform_express_1.ExpressAdapter(server));
+    app.enableCors({
+        origin: "https://basketball-strategy-ui.vercel.app",
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        credentials: true,
+    });
     await app.init();
 }
 bootstrap();
